@@ -54,36 +54,36 @@ const AuthForm = ({ type }: { type: string }) => {
       // Sign up with Appwrite & create plaid token
 
       if (type === 'sign-up') {
-        // const userData = {
-        //   firstName: data.firstName!,
-        //   lastName: data.lastName!,
-        //   address1: data.address1!,
-        //   city: data.city!,
-        //   state: data.state!,
-        //   postalCode: data.postalCode!,
-        //   dateOfBirth: data.dateOfBirth!,
-        //   ssn: data.ssn!,
-        //   email: data.email,
-        //   password: data.password,
-        // };
+        const userData = {
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          city: data.city!,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
+          ssn: data.ssn!,
+          email: data.email,
+          password: data.password,
+        };
 
         const newUser = await signUp(data);
 
         setUser(newUser);
       }
 
-  //     if (type === "sign-in") {
-  //       console.log("Signing in..."); // Debug log
-  //       const response = await signIn({
-  //         email: data.email,
-  //         password: data.password,
-  //       });
-  //       console.log("Response received:", response); // Debug log
-  //       if (response) router.push("/");
-  //     }
+      if (type === "sign-in") {
+        console.log("Signing in..."); // Debug log
+        const response = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+        console.log("Response received:", response); // Debug log
+        if (response) router.push("/");
+      }
       
-  //   } catch (error) {
-  //     console.log(error);
+    } catch (error) {
+      console.log(error);
     } finally {
       setIsLoading(false);
     }
